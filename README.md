@@ -17,3 +17,14 @@ Aplicacion de escritorio para mantener presionadas hasta 10 teclas mientras jueg
 Selecciona las teclas en la ventana y usa `Ctrl+F12` para mantenerlas presionadas. Usa `Ctrl+F10` para soltarlas y deshabilitar la app. Tambien puedes usar los botones de la ventana.
 
 Al cerrar la aplicacion, las teclas sostenidas se liberan. Si el juego se ejecuta como administrador y no recibe las teclas, ejecuta tambien esta aplicacion como administrador.
+
+## Crear ejecutable
+
+Instala PyInstaller en el entorno virtual y genera un ejecutable de Windows:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt pyinstaller
+.\.venv\Scripts\python.exe -m PyInstaller --onefile --windowed --name KeyPressedApp main.py
+```
+
+El ejecutable se guardara en `dist\KeyPressedApp.exe`. La opcion `--windowed` evita que aparezca una ventana de consola. Si el juego se ejecuta como administrador y no recibe las teclas, ejecuta tambien el ejecutable como administrador.
